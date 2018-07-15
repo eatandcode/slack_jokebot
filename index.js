@@ -38,6 +38,10 @@ function handleMessage(message){
         yoMamaJoke();
     } else if(message.includes(' random')){
         randomJoke();
+    } else if(message.includes(' help')){
+        runHelp();
+    } else if(message.includes(' thanos')){
+        runThanosJoke();
     }
 }
 //tell a Chuck Norris Joke
@@ -69,6 +73,7 @@ function yoMamaJoke(){
             );
         })
 }
+//tell random joke
 function randomJoke(){
     const rand = Math.floor(Math.random() * 2) + 1;
     if (rand === 1){
@@ -76,4 +81,23 @@ function randomJoke(){
     }else if (rand === 2) {
         yoMamaJoke();
     }
+}
+
+//show help text
+function runHelp(){
+    const params = {
+        icon_emoji: ':question:'
+    };
+
+    bot.postMessageToChannel('general', `Type @jokebot with either 
+    'chuck norris', 'yo mamma', or 'random' to get a joke`, params);
+}
+
+//Thanos jokes
+function runThanosJoke(){
+    const params = {
+        icon_emoji: ':laughing:'
+    };
+
+    bot.postMessageToChannel('general', `Yo momma so fat Thanos had to snap twice`, params);
 }
