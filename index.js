@@ -34,9 +34,10 @@ bot.on('message', data => {
 function handleMessage(message){
     if(message.includes(' chuck norris')){
         chuckJoke();
-    }
-    else if(message.includes(' yo mama')){
+    } else if(message.includes(' yo mama')){
         yoMamaJoke();
+    } else if(message.includes(' random')){
+        randomJoke();
     }
 }
 //tell a Chuck Norris Joke
@@ -67,4 +68,12 @@ function yoMamaJoke(){
             params
             );
         })
+}
+function randomJoke(){
+    const rand = Math.floor(Math.random() * 2) + 1;
+    if (rand === 1){
+        chuckJoke();
+    }else if (rand === 2) {
+        yoMamaJoke();
+    }
 }
